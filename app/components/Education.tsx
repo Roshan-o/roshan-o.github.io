@@ -91,7 +91,7 @@ export const Education = () => {
         >
           {/* Section Header */}
           <motion.div className="text-center mb-16" variants={itemVariants}>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white-primary mb-4">
               Education & Certifications
             </h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
@@ -100,7 +100,7 @@ export const Education = () => {
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Education */}
             <motion.div className="lg:col-span-2" variants={itemVariants}>
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-8 flex items-center">
+              <h3 className="text-2xl font-semibold text-white-primary mb-8 flex items-center">
                 <GraduationCap className="mr-3 text-blue-600" size={28} />
                 Education
               </h3>
@@ -109,16 +109,16 @@ export const Education = () => {
                 {education.map((edu, index) => (
                   <motion.div
                     key={index}
-                    className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6"
+                    className="dialog-box rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6"
                     whileHover={{ y: -5 }}
                     transition={{ duration: 0.2 }}
                   >
                     {/* Header */}
                     <div className="mb-4">
-                      <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                      <h4 className="text-xl font-semibold text-white-primary mb-2">
                         {edu.degree}
                       </h4>
-                      <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-2">
+                      <div className="flex flex-wrap items-center gap-4 text-sm text-white-muted mb-2">
                         <div className="flex items-center">
                           <GraduationCap size={16} className="mr-1" />
                           <span className="font-medium">{edu.institution}</span>
@@ -177,12 +177,12 @@ export const Education = () => {
 
             {/* Relevant Coursework */}
             <motion.div variants={itemVariants}>
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-8 flex items-center">
+              <h3 className="text-2xl font-semibold text-white-primary mb-8 flex items-center">
                 <Award className="mr-3 text-blue-600" size={28} />
                 Relevant Coursework
               </h3>
 
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
+              <div className="dialog-box rounded-xl shadow-lg p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {relevantCoursework.map((course, index) => (
                     <motion.div

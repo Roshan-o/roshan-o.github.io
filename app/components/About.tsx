@@ -53,7 +53,7 @@ export const About = () => {
         >
           {/* Section Header */}
           <motion.div className="text-center mb-16" variants={itemVariants}>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white-primary mb-4">
               About Me
             </h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
@@ -62,10 +62,10 @@ export const About = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* About Text */}
             <motion.div variants={itemVariants}>
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+              <h3 className="text-2xl font-semibold text-white-primary mb-6">
                 Hello! I'm Roshan Lal Kalluri
               </h3>
-              <div className="space-y-4 text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+              <div className="space-y-4 text-white-secondary text-lg leading-relaxed">
                 <p>
                   I'm an undergraduate student at IIIT Hyderabad pursuing B.Tech in Electronics 
                   and Communication Engineering. I'm passionate about software development, 
@@ -107,7 +107,7 @@ export const About = () => {
               {highlights.map((item, index) => (
                 <motion.div
                   key={index}
-                  className="flex items-start space-x-4 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  className="dialog-box flex items-start space-x-4 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.2 }}
                 >

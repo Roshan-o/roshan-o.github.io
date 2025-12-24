@@ -31,6 +31,7 @@ export const Experience = () => {
           period: "May 2025 - Jul 2025",
           location: "Bangalore, India",
           type: "Internship",
+          opacity: "0.3", 
           description: "Developed data processing optimization tools for large-scale pipelines at one of the world's leading ride-sharing companies. Focused on identifying and resolving inefficiencies in data processing workflows.",
           technologies: ["Python", "Data Processing", "SQLGlot", "Pipeline Optimization", "Performance Analysis"],
           achievements: [
@@ -45,6 +46,7 @@ export const Experience = () => {
           period: "Jul 2025 - Dec 2025",
           location: "Remote, India",
           type: "Research",
+          opacity: "0.2", 
           description: "Developing experimental frameworks and tools for educational technology research, focusing on user interaction analysis and data collection systems for educational experiments.",
           technologies: ["Next.js", "Excalidraw", "User Analytics", "Data Collection", "React"],
           achievements: [
@@ -85,13 +87,22 @@ export const Experience = () => {
                 variants={itemVariants}
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-0 md:left-auto md:right-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center transform md:translate-x-4">
+                <div className={`absolute w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center ${
+                  index % 2 === 0 
+                    ? 'left-0 md:left-auto md:right-0 transform md:translate-x-4' 
+                    : 'left-0 md:left-0 transform md:-translate-x-4'
+                }`}>
                   <div className="w-3 h-3 bg-white rounded-full"></div>
                 </div>
 
                 {/* Experience Card */}
                 <motion.div
-                  className="ml-12 md:ml-0 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6"
+                  className="ml-12 md:ml-0 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6"
+                  style={{
+                    background: `rgba(30, 58, 138, ${exp.opacity})`,
+                    backdropFilter: 'blur(12px)',
+                    border: '1px solid rgba(59, 130, 246, 0.3)'
+                  }}
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.2 }}
                 >
@@ -102,7 +113,6 @@ export const Experience = () => {
                     </h3>
                     <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
                       <div className="flex items-center">
-                        <ExternalLink size={16} className="mr-1" />
                         <span className="font-medium">{exp.company}</span>
                       </div>
                       <div className="flex items-center">
@@ -145,7 +155,7 @@ export const Experience = () => {
                       {exp.technologies.map((tech, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-md text-sm"
+                          className="px-3 py-1 dark:bg-gray-700 text-gray-800 dark:text-gray-800 rounded-md text-sm border-2 border-blue-900"
                         >
                           {tech}
                         </span>

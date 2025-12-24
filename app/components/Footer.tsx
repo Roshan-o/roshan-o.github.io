@@ -46,7 +46,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 dark:bg-black text-white">
+    <footer className="card-dark-blue text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Brand Section */}
@@ -57,8 +57,8 @@ export const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h3 className="text-2xl font-bold mb-4">Roshan Lal Kalluri</h3>
-              <p className="text-gray-300 mb-6 leading-relaxed">
+              <h3 className="text-2xl font-bold mb-4 text-white-primary">Roshan Lal Kalluri</h3>
+              <p className="text-white-secondary mb-6 leading-relaxed">
                 Undergraduate student at IIIT Hyderabad passionate about software engineering, 
                 machine learning, and data processing. Currently gaining industry experience 
                 as a Software Engineering Intern at Uber.

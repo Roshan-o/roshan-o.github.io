@@ -127,11 +127,11 @@ export const Contact = () => {
         >
           {/* Section Header */}
           <motion.div className="text-center mb-16" variants={itemVariants}>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white-primary mb-4">
               Get In Touch
             </h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg text-white-secondary max-w-2xl mx-auto">
               I'm always open to discussing new opportunities, interesting projects, 
               or just having a chat about technology. Feel free to reach out!
             </p>
@@ -140,7 +140,7 @@ export const Contact = () => {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <motion.div variants={itemVariants}>
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-8">
+              <h3 className="text-2xl font-semibold text-white-primary mb-8">
                 Let's Connect
               </h3>
               
@@ -152,7 +152,7 @@ export const Contact = () => {
                     href={item.link}
                     target={item.title === 'Location' ? '_blank' : '_self'}
                     rel={item.title === 'Location' ? 'noopener noreferrer' : ''}
-                    className="flex items-center p-4 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 group"
+                    className="dialog-box flex items-center p-4 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 group"
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.2 }}
                   >
@@ -209,7 +209,7 @@ export const Contact = () => {
             {/* Contact Form */}
             <motion.div variants={itemVariants}>
               <form ref={form} onSubmit={sendEmail} className="space-y-6">
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+                <h3 className="text-2xl font-semibold text-white-primary mb-6">
                   Send Message
                 </h3>
 

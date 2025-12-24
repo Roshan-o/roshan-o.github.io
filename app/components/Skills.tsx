@@ -29,46 +29,46 @@ export const Skills = () => {
       icon: Globe,
       title: "Programming Languages",
       skills: [
-        { name: "Python", level: 90 },
-        { name: "JavaScript", level: 85 },
-        { name: "C", level: 88 },
-        { name: "C++", level: 85 },
-        { name: "HTML/CSS", level: 90 },
-        { name: "Verilog", level: 80 }
+        { name: "Python", icon: "🐍", color: "text-yellow-400" },
+        { name: "JavaScript", icon: "JS", color: "text-yellow-300" },
+        { name: "C", icon: "C", color: "text-blue-400" },
+        { name: "C++", icon: "C++", color: "text-blue-500" },
+        { name: "HTML/CSS", icon: "🌐", color: "text-orange-500" },
+        { name: "Verilog", icon: "V", color: "text-green-400" }
       ]
     },
     {
       icon: Server,
       title: "Frameworks & Technologies",
       skills: [
-        { name: "React.js", level: 85 },
-        { name: "Express.js", level: 80 },
-        { name: "PyTorch", level: 75 },
-        { name: "Scikit-Learn", level: 85 },
-        { name: "Flask", level: 80 },
-        { name: "MongoDB Atlas", level: 85 }
+        { name: "React.js", icon: "⚛️", color: "text-cyan-400" },
+        { name: "Express.js", icon: "Ex", color: "text-gray-300" },
+        { name: "PyTorch", icon: "🔥", color: "text-red-500" },
+        { name: "Scikit-Learn", icon: "📊", color: "text-orange-400" },
+        { name: "Flask", icon: "🌶️", color: "text-gray-300" },
+        { name: "MongoDB", icon: "🍃", color: "text-green-500" }
       ]
     },
     {
       icon: Database,
       title: "Tools & Platforms",
       skills: [
-        { name: "GitHub", level: 90 },
-        { name: "VSCode", level: 95 },
-        { name: "Linux", level: 80 },
-        { name: "Arduino", level: 75 },
-        { name: "SQLGlot", level: 70 }
+        { name: "GitHub", icon: "🐙", color: "text-gray-300" },
+        { name: "VSCode", icon: "💻", color: "text-blue-500" },
+        { name: "Linux", icon: "🐧", color: "text-yellow-400" },
+        { name: "Arduino", icon: "🔌", color: "text-cyan-500" },
+        { name: "SQLGlot", icon: "🗄️", color: "text-blue-400" }
       ]
     },
     {
       icon: Wrench,
       title: "Specialized Skills",
       skills: [
-        { name: "Machine Learning", level: 80 },
-        { name: "Data Processing", level: 85 },
-        { name: "Digital Systems", level: 80 },
-        { name: "Pipeline Optimization", level: 75 },
-        { name: "MATLAB", level: 70 }
+        { name: "Machine Learning", icon: "🤖", color: "text-orange-500" },
+        { name: "Data Processing", icon: "📈", color: "text-blue-400" },
+        { name: "Digital Systems", icon: "⚡", color: "text-purple-400" },
+        { name: "Pipeline Optimization", icon: "⚙️", color: "text-blue-300" },
+        { name: "MATLAB", icon: "📐", color: "text-orange-600" }
       ]
     }
   ];
@@ -90,11 +90,11 @@ export const Skills = () => {
         >
           {/* Section Header */}
           <motion.div className="text-center mb-16" variants={itemVariants}>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white-primary mb-4">
               Skills & Technologies
             </h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg text-white-secondary max-w-2xl mx-auto">
               A comprehensive overview of my technical skills and proficiency levels
             </p>
           </motion.div>
@@ -104,7 +104,7 @@ export const Skills = () => {
             {skillCategories.map((category, index) => (
               <motion.div
                 key={index}
-                className="bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6"
+                className="dialog-box rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6"
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.2 }}
@@ -114,33 +114,27 @@ export const Skills = () => {
                   <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
                     <category.icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                  <h3 className="text-xl font-semibold text-white-primary">
                     {category.title}
                   </h3>
                 </div>
 
                 {/* Skills List */}
-                <div className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
                   {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex}>
-                      <div className="flex justify-between items-center mb-1">
-                        <span className="text-gray-700 dark:text-gray-300 font-medium">
-                          {skill.name}
-                        </span>
-                        <span className="text-sm text-gray-500 dark:text-gray-400">
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <motion.div
-                          className="bg-blue-600 h-2 rounded-full"
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1, delay: index * 0.1 + skillIndex * 0.1 }}
-                        />
-                      </div>
-                    </div>
+                    <motion.div
+                      key={skillIndex}
+                      className="bg-blue-900/30 rounded-lg p-3 flex items-center space-x-3 hover:bg-blue-800/40 transition-colors"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <span className={`text-xl font-bold ${skill.color}`}>
+                        {skill.icon}
+                      </span>
+                      <span className="text-white-secondary font-medium text-sm">
+                        {skill.name}
+                      </span>
+                    </motion.div>
                   ))}
                 </div>
               </motion.div>
@@ -149,17 +143,17 @@ export const Skills = () => {
 
           {/* Technologies Cloud */}
           <motion.div
-            className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8"
+            className="dialog-box rounded-xl shadow-lg p-8"
             variants={itemVariants}
           >
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6 text-center">
+            <h3 className="text-2xl font-semibold text-white-primary mb-6 text-center">
               Technologies I Work With
             </h3>
             <div className="flex flex-wrap justify-center gap-3">
               {technologies.map((tech, index) => (
                 <motion.span
                   key={index}
-                  className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-700 dark:hover:text-blue-300 transition-colors cursor-default"
+                  className="px-4 py-2 bg-blue-900/40 text-white-secondary rounded-full text-sm font-medium hover:bg-blue-800/60 hover:text-white-primary transition-colors cursor-default"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.2 }}
                 >
@@ -175,21 +169,21 @@ export const Skills = () => {
             variants={itemVariants}
           >
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6">
-                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">3+</div>
-                <div className="text-gray-600 dark:text-gray-400">Years Learning</div>
+              <div className="dialog-box rounded-xl shadow-lg p-6">
+                <div className="text-3xl font-bold text-blue-400 mb-2">3+</div>
+                <div className="text-white-muted">Years Learning</div>
               </div>
-              <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6">
-                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">15+</div>
-                <div className="text-gray-600 dark:text-gray-400">Technologies</div>
+              <div className="dialog-box rounded-xl shadow-lg p-6">
+                <div className="text-3xl font-bold text-blue-400 mb-2">15+</div>
+                <div className="text-white-muted">Technologies</div>
               </div>
-              <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6">
-                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">5+</div>
-                <div className="text-gray-600 dark:text-gray-400">Projects</div>
+              <div className="dialog-box rounded-xl shadow-lg p-6">
+                <div className="text-3xl font-bold text-blue-400 mb-2">5+</div>
+                <div className="text-white-muted">Projects</div>
               </div>
-              <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6">
-                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">8.16</div>
-                <div className="text-gray-600 dark:text-gray-400">CGPA</div>
+              <div className="dialog-box rounded-xl shadow-lg p-6">
+                <div className="text-3xl font-bold text-blue-400 mb-2">8.16</div>
+                <div className="text-white-muted">CGPA</div>
               </div>
             </div>
           </motion.div>

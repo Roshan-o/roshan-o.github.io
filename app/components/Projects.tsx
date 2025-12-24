@@ -126,11 +126,11 @@ export const Projects = () => {
         >
           {/* Section Header */}
           <motion.div className="text-center mb-16" variants={itemVariants}>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white-primary mb-4">
               Featured Projects
             </h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg text-white-secondary max-w-2xl mx-auto">
               A showcase of my recent work and personal projects
             </p>
           </motion.div>
@@ -140,7 +140,7 @@ export const Projects = () => {
             className="flex flex-wrap justify-center gap-4 mb-12"
             variants={itemVariants}
           >
-            <div className="flex items-center text-gray-600 dark:text-gray-400 mr-4">
+            <div className="flex items-center text-white-muted mr-4">
               <Filter size={20} className="mr-2" />
               <span className="font-medium">Filter:</span>
             </div>
@@ -151,7 +151,7 @@ export const Projects = () => {
                 className={`px-4 py-2 rounded-full transition-all duration-200 ${
                   selectedCategory === category
                     ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600'
+                    : 'dialog-box text-white-secondary hover:bg-blue-800/40 border border-blue-600/30'
                 }`}
               >
                 {category}
@@ -167,7 +167,7 @@ export const Projects = () => {
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.title}
-                className="bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                className="dialog-box rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
                 variants={itemVariants}
                 whileHover={{ y: -10 }}
                 layout
@@ -222,24 +222,24 @@ export const Projects = () => {
                   {/* Header */}
                   <div className="mb-4">
                     <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                      <h3 className="text-xl font-semibold text-white-primary">
                         {project.title}
                       </h3>
-                      <span className="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
+                      <span className="text-xs px-2 py-1 bg-blue-900/60 text-blue-200 rounded-full">
                         {project.category}
                       </span>
                     </div>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                    <p className="text-white-secondary text-sm leading-relaxed">
                       {project.description}
                     </p>
                   </div>
 
                   {/* Key Features */}
                   <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
+                    <h4 className="text-sm font-semibold text-white-primary mb-2">
                       Key Features:
                     </h4>
-                    <ul className="list-disc list-inside text-xs text-gray-600 dark:text-gray-400 space-y-1">
+                    <ul className="list-disc list-inside text-xs text-white-muted space-y-1">
                       {project.features.slice(0, 3).map((feature, i) => (
                         <li key={i}>{feature}</li>
                       ))}
@@ -252,7 +252,7 @@ export const Projects = () => {
                       {project.technologies.map((tech, i) => (
                         <span
                           key={i}
-                          className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-md text-xs"
+                          className="px-2 py-1 bg-blue-900/40 text-white-secondary rounded-md text-xs"
                         >
                           {tech}
                         </span>
@@ -266,7 +266,7 @@ export const Projects = () => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-blue-600 bg-blue-50 dark:bg-blue-900 dark:text-blue-200 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors"
+                      className="flex-1 inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-blue-200 bg-blue-900/50 rounded-lg hover:bg-blue-800/60 transition-colors"
                     >
                       <Eye size={16} className="mr-1" />
                       View Live
@@ -275,7 +275,7 @@ export const Projects = () => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-gray-600 bg-gray-50 dark:bg-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+                      className="flex-1 inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-white-secondary bg-gray-800/50 rounded-lg hover:bg-gray-700/60 transition-colors"
                     >
                       <Github size={16} className="mr-1" />
                       Code
@@ -291,7 +291,7 @@ export const Projects = () => {
             className="text-center mt-12"
             variants={itemVariants}
           >
-            <button className="inline-flex items-center px-6 py-3 text-blue-600 dark:text-blue-400 border border-blue-600 dark:border-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900 transition-colors">
+            <button className="btn-glow inline-flex items-center px-6 py-3 text-white-primary rounded-lg transition-all duration-300">
               <Github className="mr-2" size={20} />
               View All Projects on GitHub
             </button>
