@@ -61,7 +61,7 @@ export const Contact = () => {
       icon: Github,
       name: "GitHub",
       url: "https://github.com/Roshan-o",
-      color: "hover:text-gray-800 dark:hover:text-white"
+      color: "hover:text-black"
     },
     {
       icon: Linkedin,
@@ -179,7 +179,7 @@ export const Contact = () => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`p-3 bg-white dark:bg-gray-900 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-gray-600 dark:text-gray-400 ${social.color}`}
+                      className={`p-3 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-black ${social.color}`}
                       whileHover={{ y: -3, scale: 1.1 }}
                       transition={{ duration: 0.2 }}
                     >
@@ -247,7 +247,7 @@ export const Contact = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-black transition-colors"
                       placeholder="Your full name"
                     />
                   </div>
@@ -262,7 +262,7 @@ export const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-black transition-colors"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -279,7 +279,7 @@ export const Contact = () => {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-black transition-colors"
                     placeholder="What would you like to discuss?"
                   />
                 </div>
@@ -295,7 +295,7 @@ export const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-black transition-colors resize-none"
                     placeholder="Tell me about your project or just say hello..."
                   ></textarea>
                 </div>

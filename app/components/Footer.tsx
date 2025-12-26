@@ -140,9 +140,8 @@ export const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <span>© {currentYear} Roshan Lal Kalluri. Made with</span>
-              <Heart className="mx-1 text-red-500" size={16} fill="currentColor" />
-              <span>using Next.js & Tailwind CSS</span>
+              <span>© {currentYear} Roshan Lal Kalluri.</span>
+          
             </motion.div>
 
             {/* Back to Top */}

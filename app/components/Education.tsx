@@ -176,18 +176,18 @@ export const Education = () => {
             </motion.div>
 
             {/* Relevant Coursework */}
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className='w-full lg:w-auto'>
               <h3 className="text-2xl font-semibold text-white-primary mb-8 flex items-center">
                 <Award className="mr-3 text-blue-600" size={28} />
                 Relevant Coursework
               </h3>
 
               <div className="dialog-box rounded-xl shadow-lg p-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
                   {relevantCoursework.map((course, index) => (
                     <motion.div
                       key={index}
-                      className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800"
+                      className="p-3 w-fit bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800"
                       whileHover={{ scale: 1.02 }}
                       transition={{ duration: 0.2 }}
                     >

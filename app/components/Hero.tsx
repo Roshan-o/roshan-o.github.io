@@ -1,10 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Download, MapPin } from 'lucide-react';
 
 export const Hero = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -24,6 +27,13 @@ export const Hero = () => {
     }
   };
 
+  const handleMouseMove = (e: React.MouseEvent<HTMLImageElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setMousePosition({ x, y });
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8">
       <motion.div 
@@ -32,10 +42,10 @@ export const Hero = () => {
         initial="hidden"
         animate="visible"
       >
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 justify-center items-center">
           {/* Content Side */}
           <motion.div 
-            className="text-center lg:text-left"
+            className="text-center justify-center w-fit mx-auto lg:text-left"
             variants={itemVariants}
           >
             {/* Name and Title */}
@@ -88,19 +98,33 @@ export const Hero = () => {
           </motion.div>
 
           {/* Profile Image Side */}
-          <motion.div 
-            className="flex justify-center lg:justify-start"
+          <motion.div
+            className="flex justify-center w-fit mx-auto"
             variants={itemVariants}
           >
             <div className="relative">
               <motion.img
-                src="/K RL.png"
+                src="/Profile2.png"
                 alt="Roshan Lal Kalluri"
-                className="w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-full border-4 border-blue-500 shadow-2xl"
+                className="h-[60vh] justify-center w-auto object-cover shadow-2xl"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
+                onMouseMove={handleMouseMove}
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
               />
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500/20 to-purple-600/20"></div>
+              <div 
+                className={`pointer-events-none absolute inset-0 transition-opacity duration-200 ${
+                  isHovering ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{
+                  background: `radial-gradient(circle 100px at ${mousePosition.x}% ${mousePosition.y}%, 
+                    #FFDE597C 0%, 
+                    #FFDE590D 40%, 
+                    transparent 100%)`,
+                  filter: 'blur(20px)'
+                }}
+              ></div>
             </div>
           </motion.div>
         </div>

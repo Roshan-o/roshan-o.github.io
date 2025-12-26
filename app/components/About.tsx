@@ -79,8 +79,7 @@ export const About = () => {
                   high-level machine learning applications.
                 </p>
                 <p>
-                  I enjoy tackling complex problems, from building full-stack applications to 
-                  designing custom processors in Verilog. I'm always eager to learn new 
+                  I enjoy tackling complex problems and am always eager to learn new 
                   technologies and contribute to innovative projects.
                 </p>
               </div>
