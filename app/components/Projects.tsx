@@ -42,7 +42,7 @@ export const Projects = () => {
         "Performance metrics and prediction summaries"
       ],
       liveUrl: "#",
-      githubUrl: "https://github.com/Roshan-o",
+      githubUrl: "https://github.com/Roshan-o/churn-probabilty-predictor",
       status: "Completed"
     },
     {
@@ -58,7 +58,7 @@ export const Projects = () => {
         "Cloud-based data storage"
       ],
       liveUrl: "#",
-      githubUrl: "https://github.com/Roshan-o",
+      githubUrl: "https://github.com/Roshan-o/buy-sell",
       status: "Completed"
     },
     {
@@ -74,7 +74,7 @@ export const Projects = () => {
         "Web browsing and application launching"
       ],
       liveUrl: "#",
-      githubUrl: "https://github.com/Roshan-o",
+      githubUrl: "https://github.com/Roshan-o/V6-assistant",
       status: "Completed"
     },
     {
@@ -90,7 +90,7 @@ export const Projects = () => {
         "Support for logical and arithmetic operations"
       ],
       liveUrl: "#",
-      githubUrl: "https://github.com/Roshan-o",
+      githubUrl: "https://github.com/Roshan-o/Processor-architecture",
       status: "Completed"
     },
     {
@@ -197,19 +197,19 @@ export const Projects = () => {
                   {/* Overlay on Hover */}
                   <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="flex space-x-4">
-                      <a
+                      {/* <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 bg-white rounded-full text-gray-800 hover:bg-gray-100 transition-colors"
+                        className="p-2 bg-blue-600 rounded-full text-gray-800 hover:bg-black hover:text-white transition-colors"
                       >
                         <ExternalLink size={20} />
-                      </a>
+                      </a> */}
                       <a
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 bg-white rounded-full text-gray-800 hover:bg-gray-100 transition-colors"
+                        className="p-2 bg-blue-600 rounded-full text-gray-800 hover:bg-black hover:text-white transition-colors"
                       >
                         <Github size={20} />
                       </a>
