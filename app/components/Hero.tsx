@@ -104,9 +104,9 @@ export const Hero = () => {
           >
             <div className="relative">
               <motion.img
-                src="/Profile2.png"
+                src="/Roshan/Profile2.png"
                 alt="Roshan Lal Kalluri"
-                className="h-[60vh] justify-center w-auto object-cover shadow-2xl"
+                className="h-[60vh] w-auto object-cover shadow-2xl"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
                 onMouseMove={handleMouseMove}

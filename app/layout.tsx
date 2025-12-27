@@ -17,9 +17,6 @@ export const metadata: Metadata = {
   description: "Professional portfolio of Roshan Lal Kalluri - Software Engineering Intern & ECE Student",
   keywords: "portfolio, developer, software engineering, machine learning, IIIT Hyderabad",
   authors: [{ name: "Roshan Lal Kalluri" }],
-  icons: {
-    shortcut: "C:\\Users\\ASUS\\Desktop\\portfolio\\public\\Krl.png",
-  },
 };
 
 export default function RootLayout({
