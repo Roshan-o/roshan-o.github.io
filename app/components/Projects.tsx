@@ -262,7 +262,7 @@ export const Projects = () => {
 
                   {/* Action Buttons */}
                   <div className="flex space-x-3">
-                    <a
+                    {/* <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -270,7 +270,7 @@ export const Projects = () => {
                     >
                       <Eye size={16} className="mr-1" />
                       View Live
-                    </a>
+                    </a> */}
                     <a
                       href={project.githubUrl}
                       target="_blank"
