@@ -104,7 +104,7 @@ export const Hero = () => {
           >
             <div className="relative">
               <motion.img
-                src="/Roshan/Profile2.png"
+                src="/Profile2.png"
                 alt="Roshan Lal Kalluri"
                 className="h-[60vh] w-auto object-cover shadow-2xl"
                 whileHover={{ scale: 1.05 }}

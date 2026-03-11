@@ -1,13 +1,13 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
-  "homepage": "https://roshan-o.github.io",
+  "homepage": "https://roshan-o.github.io/",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "next build",
+    "deploy": "next build && gh-pages -d out --dotfiles",
     "lint": "eslint"
   },
   "dependencies": {
