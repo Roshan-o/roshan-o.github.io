@@ -85,36 +85,7 @@ export const Contact = () => {
     }));
   };
 
-  const sendEmail = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!form.current) return;
 
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    try {
-      // Note: You need to set up EmailJS service
-      // 1. Create account at https://www.emailjs.com/
-      // 2. Create email service and template
-      // 3. Replace these IDs with your actual EmailJS IDs
-      const result = await emailjs.sendForm(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-        form.current,
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
-      );
-
-      console.log('Email sent successfully:', result);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      console.error('Error sending email:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 ">
@@ -189,141 +160,26 @@ export const Contact = () => {
                 </div>
               </div>
 
-              {/* Availability */}
+            </motion.div>
+            
+            {/* Availability */}
+            <motion.div variants={itemVariants} className="flex flex-col justify-start">
+              <h3 className="text-2xl font-semibold text-white-primary mb-8">
+                Available for new opportunities
+              </h3>
               <motion.div
-                className="mt-8 p-6 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl"
-                variants={itemVariants}
+                className="p-6 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl"
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.2 }}
               >
-                <div className="flex items-center mb-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-green-800 dark:text-green-200 font-semibold">
-                    Available for new opportunities
-                  </span>
-                </div>
                 <p className="text-green-700 dark:text-green-300 text-sm">
                   I'm currently open to full-time positions, freelance projects, and consulting opportunities.
                 </p>
               </motion.div>
             </motion.div>
-
-            {/* Contact Form */}
-            <motion.div variants={itemVariants}>
-              <form ref={form} onSubmit={sendEmail} className="space-y-6">
-                <h3 className="text-2xl font-semibold text-white-primary mb-6">
-                  Send Message
-                </h3>
-
-                {/* Success/Error Messages */}
-                {submitStatus === 'success' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center text-green-800 dark:text-green-200"
-                  >
-                    <CheckCircle className="mr-2" size={20} />
-                    Message sent successfully! I'll get back to you soon.
-                  </motion.div>
-                )}
-
-                {submitStatus === 'error' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-red-800 dark:text-red-200"
-                  >
-                    Failed to send message. Please try again or email me directly.
-                  </motion.div>
-                )}
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-black transition-colors"
-                      placeholder="Your full name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-black transition-colors"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Subject *
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-black transition-colors"
-                    placeholder="What would you like to discuss?"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={6}
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-black transition-colors resize-none"
-                    placeholder="Tell me about your project or just say hello..."
-                  ></textarea>
-                </div>
-
-                <motion.button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="btn-glow w-full text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="mr-2" size={20} />
-                      Send Message
-                    </>
-                  )}
-                </motion.button>
-              </form>
-            </motion.div>
           </div>
         </motion.div>
       </div>
     </section>
-  );
-};
+    );
+}
