@@ -27,7 +27,7 @@ export const Hero = () => {
     }
   };
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLImageElement>) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
@@ -35,7 +35,7 @@ export const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6">
       <motion.div 
         className="max-w-7xl mx-auto"
         variants={containerVariants}
@@ -60,7 +60,7 @@ export const Hero = () => {
               className="text-xl sm:text-2xl lg:text-3xl text-blue-400 font-semibold mb-6"
               variants={itemVariants}
             >
-              Software Engineering Intern & ECE Student
+              Junior at IIIT Hyderabad
             </motion.h2>
 
             {/* Location */}
@@ -79,7 +79,7 @@ export const Hero = () => {
             >
               Undergraduate student at IIIT Hyderabad pursuing B.Tech in Electronics and Communication Engineering. 
               Passionate about software development, machine learning, and data processing with hands-on experience 
-              in full-stack development and system optimization.
+              in full-stack development, system optimization, Machine Learning and AI.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -102,29 +102,61 @@ export const Hero = () => {
             className="flex justify-center w-fit mx-auto"
             variants={itemVariants}
           >
-            <div className="relative">
-              <motion.img
-                src="/Profile2.png"
+            <div 
+              className="relative rounded-2xl overflow-hidden group shadow-2xl"
+              onMouseMove={handleMouseMove}
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+            >
+              {/* Grayscale Base Image */}
+              <img
+                src="/Profile4.jpeg"
                 alt="Roshan Lal Kalluri"
-                className="h-[60vh] w-auto object-cover shadow-2xl"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-                onMouseMove={handleMouseMove}
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
+                className="h-[60vh] w-auto object-cover grayscale shadow-2xl transition-all duration-700"
+                style={{ filter: 'grayscale(70%)' }}
               />
-              <div 
-                className={`pointer-events-none absolute inset-0 transition-opacity duration-200 ${
-                  isHovering ? 'opacity-100' : 'opacity-0'
-                }`}
-                style={{
-                  background: `radial-gradient(circle 100px at ${mousePosition.x}% ${mousePosition.y}%, 
-                    #FFDE597C 0%, 
-                    #FFDE590D 40%, 
-                    transparent 100%)`,
-                  filter: 'blur(20px)'
+              
+              {/* Color Image with Ripple Mask */}
+              <motion.img
+                src="/Profile4.jpeg"
+                alt="Roshan Lal Kalluri"
+                className="absolute inset-0 h-[60vh] w-auto object-cover z-10 pointer-events-none"
+                initial={false}
+                animate={{
+                  clipPath: isHovering 
+                    ? `circle(150% at ${mousePosition.x}% ${mousePosition.y}%)`
+                    : `circle(0% at ${mousePosition.x}% ${mousePosition.y}%)`,
                 }}
-              ></div>
+                transition={{ 
+                  duration: 3, 
+                  ease: "easeOut" 
+                }}
+              />
+
+              {/* Subtle Water Ripple Edge Effect */}
+              {isHovering && (
+                <motion.div
+                  className="pointer-events-none absolute inset-0 z-20"
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ 
+                    opacity: [0, 0.5, 0],
+                    scale: [0, 2],
+                  }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
+                  style={{
+                    position: 'absolute',
+                    left: `${mousePosition.x}%`,
+                    top: `${mousePosition.y}%`,
+                    width: '200px',
+                    height: '200px',
+                    marginLeft: '-100px',
+                    marginTop: '-100px',
+                    background: 'radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%)',
+                    borderRadius: '50%',
+                    filter: 'blur(8px)'
+                  }}
+                />
+              )}
             </div>
           </motion.div>
         </div>
