@@ -86,26 +86,7 @@ export const Education = () => {
         // "Prepared for advanced engineering studies"
       ]
     },
-    {
-      degree: "Pre-University Course",
-      institution: "Rajiv Gandhi University of Knowledge and Technologies",
-      period: "Jun 2021 - Jul 2023",
-      location: "India",
-      gpa: "9.64/10",
-      description: "Completed pre-university education with outstanding academic performance, laying a strong foundation in mathematics, physics, and computer science.",
-      coursework: [
-        "Mathematics",
-        "Physics",
-        "Computer Science",
-        "Chemistry",
-        "English"
-      ],
-      achievements: [
-        // "Achieved exceptional CGPA of 9.64/10",
-        // "Strong foundation in STEM subjects",
-        // "Prepared for advanced engineering studies"
-      ]
-    },
+
 
   ];
 
