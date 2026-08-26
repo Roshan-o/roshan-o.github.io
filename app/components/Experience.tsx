@@ -35,7 +35,7 @@ export const Experience = () => {
         'Added observability (Grafana dashboards, alerting) into the reconciliation system to monitor deactivation attempts, success rates, and per-subsystem breakdowns, detecting ∼11 accounts/day with incomplete deactivation and enabling proactive follow-up before stale access became a security risk.',
         'Built an automated data pipeline replacing manual, multi-day SFDC provisioning updates with real-time dashboard visibility.',
       ],
-      technologies: ['Python', 'APIs', 'Active Directory', 'Grafana', 'Alerting', 'Data Pipelines', 'SRE', 'Security'],
+      technologies: ['Golang', 'APIs', 'Grafana'],
     },
     {
       id: 'uber-2025',
@@ -50,7 +50,7 @@ export const Experience = () => {
         'Developed an automated SQL optimization tool using Python and SQLGlot to detect redundant CTE processing across 3,500+ production SQL queries, using LLM-based analysis to identify unused cached columns.',
         'Identified 500 queries with repeated CTE/view processing, enabling optimization of redundant computation and data access, contributing to an estimated $5K in cost savings.',
       ],
-      technologies: ['Python', 'SQLGlot', 'LLM Analysis', 'Query Optimization', 'Data Pipelines', 'Big Data'],
+      technologies: ['Python', 'SQLGlot', 'LLM Analysis', 'Query Optimization', 'Data Pipelines'],
     },
     {
       id: 'vlabs-2025',
