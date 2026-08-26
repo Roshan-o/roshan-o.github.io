@@ -50,7 +50,7 @@ export const Education = () => {
       institution: "International Institute of Information Technology, Hyderabad",
       period: "Jul 2023 - Jul 2027",
       location: "Hyderabad, India",
-      gpa: "8.16/10",
+      gpa: "8.21/10",
       description: "Currently pursuing B.Tech at IIIT Hyderabad with a focus on software development, Machine Learning and AI.",
       coursework: [
         "Data Structures and Algorithms",

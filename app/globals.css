@@ -1,55 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ffffff;
-  --primary: #60a5fa;
-  --secondary: #94a3b8;
-  --accent: #fbbf24;
-  --border: #374151;
-  --radius: 0.5rem;
+  --background: #0f172a;
+  --foreground: #94a3b8;
+  --heading: #f1f5f9;
+  --accent: #2dd4bf;
+  --accent-light: #5eead4;
+  --primary: #38bdf8;
+  --card-bg: rgba(30, 41, 59, 0.5);
+  --card-hover: rgba(30, 41, 59, 0.85);
+  --sidebar-bg: #090f1d;
+  --main-bg: #0f172a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
+  --color-heading: var(--heading);
   --color-accent: var(--accent);
-  --color-border: var(--border);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --primary: #3b82f6;
-    --secondary: #94a3b8;
-    --accent: #fbbf24;
-    --border: #334155;
-  }
-  
-  body {
-    background-image: 
-      linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
-    background-size: 20px 20px;
-  }
-}
-
-body {
-  background: transparent;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 100px 100px;
-  color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
-  font-weight: 400;
-  line-height: 1.6;
-  cursor: default;
+  --color-primary: var(--primary);
+  --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
 }
 
 * {
@@ -58,91 +29,62 @@ body {
 
 html {
   scroll-behavior: smooth;
-  background: linear-gradient(180deg, #000000 0%, #090430 100%);
-  background-attachment: fixed;
-  background-size: 100% 100vh;
-  min-height: 100vh;
+  background-color: #0f172a;
+  color: #94a3b8;
 }
 
-/* Custom scrollbar */
+body {
+  background-color: #0f172a;
+  color: #94a3b8;
+  font-family: var(--font-sans), sans-serif;
+  line-height: 1.625;
+  overflow-x: hidden;
+}
+
+/* Custom Selection Highlight */
+::selection {
+  background-color: #5eead4;
+  color: #042f2e;
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.3);
+  background: #0b1120;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
+  background: #334155;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: #475569;
 }
 
-/* Button glow effects */
-.btn-glow {
-  background: rgba(59, 130, 246, 0.1);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  transition: all 0.3s ease;
+/* Navigation Indicator Animation */
+.nav-indicator {
+  transition: width 0.2s ease, background-color 0.2s ease;
 }
 
-.btn-glow:hover {
-  background: rgba(234, 179, 8, 0.15);
-  border-color: rgba(234, 179, 8, 0.4);
-  box-shadow: 0 0 20px rgba(234, 179, 8, 0.4), 0 0 40px rgba(234, 179, 8, 0.2);
-  transform: translateY(-2px);
+/* Outgoing link arrow hover */
+.group:hover .arrow-icon {
+  transform: translate(2px, -2px);
 }
 
-/* Font color classes - shades of white */
-.text-white-primary {
-  color: #ffffff !important;
+/* Interactive Card Lighting */
+.accordion-card {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.text-white-secondary {
-  color: #f8fafc !important;
+.accordion-card:hover {
+  background-color: rgba(30, 41, 59, 0.6);
+  border-color: rgba(148, 163, 184, 0.2);
 }
 
-.text-white-muted {
-  color: #e2e8f0 !important;
-}
-
-.text-white-subtle {
-  color: #cbd5e1 !important;
-}
-
-/* Dialog box styles - dark blue with less transparency */
-.dialog-box {
-  background: rgba(30, 58, 138, 0.85) !important;
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(59, 130, 246, 0.3);
-}
-
-.card-dark-blue {
-  background: rgba(15, 23, 42, 0.9) !important;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(30, 58, 138, 0.4);
-}
-
-/* Override existing text colors to white shades */
-.text-gray-900,
-.text-gray-800,
-.text-gray-700 {
-  color: #ffffff !important;
-}
-
-.text-gray-600,
-.text-gray-500 {
-  color: #e2e8f0 !important;
-}
-
-.text-gray-400,
-.text-gray-300 {
-  color: #cbd5e1 !important;
-}
 
 
 

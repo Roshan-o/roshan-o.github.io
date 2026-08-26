@@ -13,10 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Roshan Lal Kalluri - Portfolio",
-  description: "Professional portfolio of Roshan Lal Kalluri - Software Engineering Intern & ECE Student",
-  keywords: "portfolio, developer, software engineering, machine learning, IIIT Hyderabad",
-  authors: [{ name: "Roshan Lal Kalluri" }],
+  title: "K Roshan Lal — Software Engineer & Undergrad at IIIT Hyderabad",
+  description: "Portfolio of K Roshan Lal - Software Engineer, Ex-Uber Intern & ECE Student at IIIT Hyderabad.",
+  keywords: "Roshan Lal, portfolio, software engineer, machine learning, data engineering, IIIT Hyderabad, Uber intern",
+  authors: [{ name: "K Roshan Lal" }],
 };
 
 export default function RootLayout({

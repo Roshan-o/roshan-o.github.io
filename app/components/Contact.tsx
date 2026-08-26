@@ -1,185 +1,153 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, CheckCircle } from 'lucide-react';
-import emailjs from '@emailjs/browser';
+import React, { useState } from 'react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, ArrowUpRight } from 'lucide-react';
 
 export const Contact = () => {
-  const form = useRef<HTMLFormElement>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
-    message: ''
+    message: '',
   });
+  const [isSent, setIsSent] = useState(false);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Build mailto link fallback
+    const subject = encodeURIComponent(`Portfolio Message from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    window.open(`mailto:roshanlalkalluri@gmail.com?subject=${subject}&body=${body}`, '_blank');
+    setIsSent(true);
+    setTimeout(() => setIsSent(false), 5000);
   };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1
-    }
-  };
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: "Email",
-      value: "roshanlalkalluri@gmail.com",
-      link: "mailto:roshanlalkalluri@gmail.com"
-    },
-    {
-      icon: Phone,
-      title: "Phone",
-      value: "+91 8328525761",
-      link: "tel:+918328525761"
-    },
-    {
-      icon: MapPin,
-      title: "Location",
-      value: "Hyderabad, India",
-      link: "https://maps.google.com/?q=Hyderabad,India"
-    }
-  ];
-
-  const socialLinks = [
-    {
-      icon: Github,
-      name: "GitHub",
-      url: "https://github.com/Roshan-o",
-      color: "hover:text-black"
-    },
-    {
-      icon: Linkedin,
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/kalluri-roshan-lal",
-      color: "hover:text-blue-600"
-    },
-    {
-      icon: Mail,
-      name: "Email",
-      url: "mailto:roshanlalkalluri@gmail.com",
-      color: "hover:text-red-600"
-    }
-  ];
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 ">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          {/* Section Header */}
-          <motion.div className="text-center mb-16" variants={itemVariants}>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white-primary mb-4">
-              Get In Touch
-            </h2>
-            <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
-            <p className="text-lg text-white-secondary max-w-2xl mx-auto">
-              I'm always open to discussing new opportunities, interesting projects, 
-              or just having a chat about technology. Feel free to reach out!
-            </p>
-          </motion.div>
+    <section id="contact" className="scroll-mt-16 lg:scroll-mt-24 pb-4" aria-label="Contact">
+      {/* Mobile Sticky Header */}
+      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+        <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200">Contact</h2>
+      </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <motion.div variants={itemVariants}>
-              <h3 className="text-2xl font-semibold text-white-primary mb-8">
-                Let's Connect
-              </h3>
-              
-              {/* Contact Details */}
-              <div className="space-y-6 mb-8">
-                {contactInfo.map((item, index) => (
-                  <motion.a
-                    key={index}
-                    href={item.link}
-                    target={item.title === 'Location' ? '_blank' : '_self'}
-                    rel={item.title === 'Location' ? 'noopener noreferrer' : ''}
-                    className="dialog-box flex items-center p-4 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 group"
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-200 dark:group-hover:bg-blue-800 transition-colors">
-                      <item.icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                    </div>
-                    <div>
-                      <div className="text-sm text-gray-500 dark:text-gray-400">{item.title}</div>
-                      <div className="text-gray-900 dark:text-white font-medium">{item.value}</div>
-                    </div>
-                  </motion.a>
-                ))}
+      <div className="space-y-6">
+        <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+          I'm currently actively exploring software engineering roles, research collaborations, and impactful technical projects. Whether you have a question, opportunity, or just want to connect, my inbox is always open!
+        </p>
+
+        {/* Quick Contact Cards */}
+        <div className="grid sm:grid-cols-2 gap-3">
+          <a
+            href="mailto:roshanlalkalluri@gmail.com"
+            className="p-4 rounded-xl border border-slate-800 bg-slate-900/60 hover:border-teal-500/40 hover:bg-slate-800/60 transition-all flex items-center justify-between group"
+          >
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-lg bg-teal-400/10 text-teal-300">
+                <Mail className="w-4 h-4" />
               </div>
-
-              {/* Social Links */}
               <div>
-                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                  Follow Me
-                </h4>
-                <div className="flex space-x-4">
-                  {socialLinks.map((social, index) => (
-                    <motion.a
-                      key={index}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`p-3 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-black ${social.color}`}
-                      whileHover={{ y: -3, scale: 1.1 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <social.icon size={24} />
-                    </motion.a>
-                  ))}
+                <div className="text-xs uppercase tracking-wider text-slate-400">Email</div>
+                <div className="text-sm font-medium text-slate-200 group-hover:text-teal-300 transition-colors">
+                  roshanlalkalluri@gmail.com
                 </div>
               </div>
+            </div>
+            <ArrowUpRight className="w-4 h-4 text-slate-500 group-hover:text-teal-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+          </a>
 
-            </motion.div>
-            
-            {/* Availability */}
-            <motion.div variants={itemVariants} className="flex flex-col justify-start">
-              <h3 className="text-2xl font-semibold text-white-primary mb-8">
-                Available for new opportunities
-              </h3>
-              <motion.div
-                className="p-6 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl"
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.2 }}
-              >
-                <p className="text-green-700 dark:text-green-300 text-sm">
-                  I'm currently open to full-time positions, freelance projects, and consulting opportunities.
-                </p>
-              </motion.div>
-            </motion.div>
+          <a
+            href="tel:+918328525761"
+            className="p-4 rounded-xl border border-slate-800 bg-slate-900/60 hover:border-teal-500/40 hover:bg-slate-800/60 transition-all flex items-center justify-between group"
+          >
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-lg bg-teal-400/10 text-teal-300">
+                <Phone className="w-4 h-4" />
+              </div>
+              <div>
+                <div className="text-xs uppercase tracking-wider text-slate-400">Phone</div>
+                <div className="text-sm font-medium text-slate-200 group-hover:text-teal-300 transition-colors">
+                  +91 8328525761
+                </div>
+              </div>
+            </div>
+            <ArrowUpRight className="w-4 h-4 text-slate-500 group-hover:text-teal-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+          </a>
+        </div>
+
+        {/* Reach Out Form */}
+        <form
+          onSubmit={handleSubmit}
+          className="p-6 rounded-xl border border-slate-800 bg-slate-900/80 space-y-4"
+        >
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-200">
+            Send a Quick Note
+          </h3>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="name" className="block text-xs uppercase tracking-wider text-slate-400 mb-1.5">
+                Your Name
+              </label>
+              <input
+                id="name"
+                type="text"
+                required
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className="w-full px-3.5 py-2.5 rounded-lg bg-slate-950/80 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-teal-400 transition-colors"
+                placeholder="Alex Doe"
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-xs uppercase tracking-wider text-slate-400 mb-1.5">
+                Your Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                required
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="w-full px-3.5 py-2.5 rounded-lg bg-slate-950/80 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-teal-400 transition-colors"
+                placeholder="alex@example.com"
+              />
+            </div>
           </div>
-        </motion.div>
+
+          <div>
+            <label htmlFor="message" className="block text-xs uppercase tracking-wider text-slate-400 mb-1.5">
+              Message
+            </label>
+            <textarea
+              id="message"
+              rows={4}
+              required
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              className="w-full px-3.5 py-2.5 rounded-lg bg-slate-950/80 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-teal-400 transition-colors resize-none"
+              placeholder="Hi Roshan, let's discuss a project..."
+            />
+          </div>
+
+          <div className="flex items-center justify-between pt-2">
+            <button
+              type="submit"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-teal-400 text-slate-950 text-sm font-semibold hover:bg-teal-300 transition-all cursor-pointer shadow-lg shadow-teal-500/10"
+            >
+              <Send className="w-4 h-4" />
+              <span>Send Message</span>
+            </button>
+
+            {isSent && (
+              <span className="inline-flex items-center gap-1.5 text-xs text-emerald-400 font-medium">
+                <CheckCircle2 className="w-4 h-4" />
+                Draft opened in email client!
+              </span>
+            )}
+          </div>
+        </form>
+
       </div>
     </section>
-    );
-}
+  );
+};
