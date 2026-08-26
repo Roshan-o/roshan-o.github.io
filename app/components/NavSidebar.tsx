@@ -66,7 +66,7 @@ export const NavSidebar: React.FC<NavSidebarProps> = ({ activeSection }) => {
         </h2>
 
         <p className="mt-3.5 max-w-sm sm:max-w-md leading-relaxed text-slate-400 text-sm sm:text-base">
-          Undergraduate student at IIIT Hyderabad passionate about engineering scalable software systems, robust backend architectures, and intelligent data pipelines.
+          Undergraduate student at IIIT Hyderabad passionate about engineering scalable software systems, robust backend architectures.
         </p>
 
         {/* Navigation List with Expanding Lines */}
